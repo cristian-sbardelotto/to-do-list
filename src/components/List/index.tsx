@@ -1,8 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-import { Container, Name } from './styles';
+import { ITask } from '../../types';
 
-const TaskList = () => {
+import {
+  AddButton,
+  Container,
+  FinishButton,
+  Input,
+  Item,
+  Name,
+  RemoveButton,
+  Title,
+} from './styles';
+
+function List() {
   const [taskList, setTaskList] = useState([
     { id: 0, name: 'My First Task!', checked: false },
   ]);
@@ -11,16 +22,13 @@ const TaskList = () => {
 
   function addTask() {
     if (!taskValue) return alert('Type anything in the input');
+    if (taskValue.length > 100)
+      return alert('You have exceeded the maximum characters of the task!');
 
-    setTaskId(taskId + 1);
-
-    const newTask = {
-      id: taskId,
-      name: taskValue,
-      checked: false,
-    };
+    const newTask: ITask = { id: taskId, name: taskValue, checked: false };
 
     setTaskList([...taskList, newTask]);
+    setTaskId(taskId + 1);
     setTaskValue('');
   }
 
@@ -28,12 +36,13 @@ const TaskList = () => {
     const newList = taskList.filter(task => task.id !== id);
     setTaskList(newList);
 
-    taskList.length <= 1 && setTaskId(1);
+    taskList.length <= 1 && setTaskId(1); // resets the tasks ID to 1 if there're no tasks
   }
 
   function finishTask(id: number, checked: boolean) {
     const index = taskList.findIndex(task => task.id === id);
     const newList = taskList;
+
     newList[index].checked = !checked;
     setTaskList([...newList]);
   }
@@ -44,27 +53,34 @@ const TaskList = () => {
   // );
 
   return (
-    <div>
-      <input
+    <Container>
+      <Title>To Do List</Title>
+      <Input
         type='text'
         placeholder='Type a task...'
         onChange={e => setTaskValue(e.target.value)}
         value={taskValue}
       />
-      <Name />
-      <button onClick={addTask}>Add a New Task</button>
+      <AddButton onClick={addTask}>Add a New Task</AddButton>
 
       {taskList.map(task => (
-        <Container key={task.id} checked={task.checked}>
+        <Item
+          key={task.id}
+          checked={task.checked}
+        >
           <Name>{task.name}</Name>
 
-          <button onClick={() => removeTask(task.id)}>Remove Task</button>
+          <RemoveButton onClick={() => removeTask(task.id)}>
+            Remove Task
+          </RemoveButton>
 
-          <button onClick={() => finishTask(task.id, task.checked)}>Finish Task</button>
-        </Container>
+          <FinishButton onClick={() => finishTask(task.id, task.checked)}>
+            Finish Task
+          </FinishButton>
+        </Item>
       ))}
-    </div>
+    </Container>
   );
-};
+}
 
-export default TaskList;
+export default List;

@@ -1,14 +1,9 @@
 import React from 'react';
-import TaskList from './components/TaskList';
+import List from './components/List';
 
-import { Container } from './styles/index';
 
-const App = () => {
-  return (
-    <Container>
-      <TaskList />
-    </Container>
-  );
-};
+function App() {
+  return <List />;
+}
 
 export default App;
