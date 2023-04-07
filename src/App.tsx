@@ -1,13 +1,13 @@
 import React from 'react';
-import Test from './components/Test';
+import TaskList from './components/TaskList';
+
+import { Container } from './styles/index';
 
 const App = () => {
   return (
-    <div>
-      <p>Hello world!</p>
-
-      <Test />
-    </div>
+    <Container>
+      <TaskList />
+    </Container>
   );
 };
 
