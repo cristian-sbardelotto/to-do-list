@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
+export const Container = styled.section<{ checked: boolean }>`
   background-color: #fff;
   border-radius: 20px;
   padding: 1rem;
+
+  background-color: ${props => (props.checked ? '#0f0' : '#fff')};
 `;
 
-export const Name = styled.h1`
-  /* color: ${props => (props.checked ? '#000000' : '#fff')}; */
-`;
+export const Name = styled.h3``;
