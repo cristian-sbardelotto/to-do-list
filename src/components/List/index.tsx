@@ -3,27 +3,29 @@ import React, { useState } from 'react';
 import { ITask } from '../../types';
 
 import {
-  AddButton,
+  Button,
   Container,
-  FinishButton,
   Input,
   Item,
   Name,
-  RemoveButton,
   Title,
+  FormGroup,
+  Author,
+  AuthorLink,
+  ButtonsGroup,
+  Icon,
 } from './styles';
 
+
+import { faTrashAlt, faCheck, faRemove } from '@fortawesome/free-solid-svg-icons';
+
 function List() {
-  const [taskList, setTaskList] = useState([
-    { id: 0, name: 'My First Task!', checked: false },
-  ]);
+  const [taskList, setTaskList] = useState<ITask[]>([]);
   const [taskValue, setTaskValue] = useState('');
   const [taskId, setTaskId] = useState(1);
 
   function addTask() {
     if (!taskValue) return alert('Type anything in the input');
-    if (taskValue.length > 100)
-      return alert('You have exceeded the maximum characters of the task!');
 
     const newTask: ITask = { id: taskId, name: taskValue, checked: false };
 
@@ -54,14 +56,17 @@ function List() {
 
   return (
     <Container>
-      <Title>To Do List</Title>
-      <Input
-        type='text'
-        placeholder='Type a task...'
-        onChange={e => setTaskValue(e.target.value)}
-        value={taskValue}
-      />
-      <AddButton onClick={addTask}>Add a New Task</AddButton>
+      <Title>todo list</Title>
+
+      <FormGroup>
+        <Input
+          type='text'
+          placeholder='Type a task...'
+          onChange={e => setTaskValue(e.target.value)}
+          value={taskValue}
+        />
+        <Button onClick={addTask}>Create task</Button>
+      </FormGroup>
 
       {taskList.map(task => (
         <Item
@@ -70,15 +75,34 @@ function List() {
         >
           <Name>{task.name}</Name>
 
-          <RemoveButton onClick={() => removeTask(task.id)}>
-            Remove Task
-          </RemoveButton>
+          <ButtonsGroup>
+            <Icon
+              icon={task.checked ? faRemove : faCheck}
+              onClick={() => finishTask(task.id, task.checked)}
+              size='2x'
+              color={task.checked ? '#fff' : '#33b078'}
+            />
 
-          <FinishButton onClick={() => finishTask(task.id, task.checked)}>
-            Finish Task
-          </FinishButton>
+            <Icon
+              icon={faTrashAlt}
+              onClick={() => removeTask(task.id)}
+              size='2x'
+              color={task.checked ? '#000' : '#f009'}
+            />
+          </ButtonsGroup>
         </Item>
       ))}
+
+      <Author>
+        © Made by{' '}
+        <AuthorLink
+          href='https://github.com/cristian-sbardelotto'
+          target='_blank'
+          rel='noreferrer'
+        >
+          Cristian Sbardelotto
+        </AuthorLink>
+      </Author>
     </Container>
   );
 }
