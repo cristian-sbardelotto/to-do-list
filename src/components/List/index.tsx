@@ -16,8 +16,11 @@ import {
   Icon,
 } from './styles';
 
-
-import { faTrashAlt, faCheck, faRemove } from '@fortawesome/free-solid-svg-icons';
+import {
+  faTrashAlt,
+  faCheck,
+  faRemove,
+} from '@fortawesome/free-solid-svg-icons';
 
 function List() {
   const [taskList, setTaskList] = useState<ITask[]>([]);
@@ -48,11 +51,6 @@ function List() {
     newList[index].checked = !checked;
     setTaskList([...newList]);
   }
-
-  // useEffect(
-  //   () => sessionStorage.setItem('taskList', JSON.stringify(taskList)),
-  //   [taskList]
-  // );
 
   return (
     <Container>

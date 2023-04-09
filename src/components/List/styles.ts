@@ -101,7 +101,7 @@ export const Icon = styled(FontAwesomeIcon)`
 
 export const Author = styled.p`
   margin-top: 2rem;
-  
+
   font-style: italic;
 `;
 
