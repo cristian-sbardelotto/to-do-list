@@ -1,8 +1,8 @@
-<h1 align="center"> To Do List </h1>
+<h1 align="center"> To Do List ✅ </h1>
 
-<h2 align="center">
-Project status: unfinished.
-</h2>
+<p align="center">
+Simple to-do list that allows user to create, delete and mark tasks.
+</p>
 
 <p align="center">
   <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -13,50 +13,51 @@ Project status: unfinished.
 <br>
 
 <p align="center">
-  <img alt="Project preview" src="./.github/preview.jpg" width="100%">
+  <img alt="Project preview" src="./.github/preview.png" width="100%">
 </p>
-<h1 id='technologies'>🖱️ Technologies</h2>
+<h2 id='technologies'>🖱️ Technologies</h2>
 
 <p>This project was made with the following technologies/libraries:</p>
 
-- Tech1
-- Tech2
-- Tech3
-- Tech4
+- React
+- TypeScript
+- Styled-Components
+- Font-Awesome
+- Vite
+- ESLint
+- Git
+- Github
 
 <br />
 
-<h1 id='layout'>🖥️ Layout</h1>
+<h2 id='layout'>🖥️ Layout</h2>
 
 <br />
 
-> To see the Figma of the project, use [THIS LINK](link)
-
-
-> To see the Deploy, check [THIS LINK](link)
+> To see the Deploy, check [THIS LINK](https://to-do-list-henna-three.vercel.app)
 
 <br />
 
-<h1 id='installation'>📤 Installation</h1>
+<h2 id='installation'>📤 Installation</h2>
 
-> <h3>Firstly, you need to <strong>clone the project</strong> on your machine:</h3>
+> <h4>Firstly, you need to <strong>clone the project</strong> on your machine:</h4>
 <br />
 
-<p align='center'><code>git clone https://github.com/cristian-sbardelotto/project-name</code></p>
+<p align='center'><code>git clone https://github.com/cristian-sbardelotto/to-do-list</code></p>
 
 <br />
 
-> <h3>After that, open the project folder and <strong>install the dependencies:</strong></h3>
+> <h4>After that, open the project folder and <strong>install the dependencies:</strong></h4>
 
 
 <p align='center'><code>npm i</code></p>
 
 <p align='center'><code>yarn</code></p>
 
-> <h3>To <strong>run the project</strong> on your browser, use:</h3>
+> <h4>To <strong>run the project</strong> on your browser, use:</h4>
 
-<p align='center'><code>npm start</code></p>
-<p align='center'><code>yarn start</code></p>
+<p align='center'><code>npm run dev</code></p>
+<p align='center'><code>yarn dev</code></p>
 
 <br/>
 
