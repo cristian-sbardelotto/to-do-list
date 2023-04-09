@@ -1,14 +1,8 @@
 import React from 'react';
-import Test from './components/Test';
+import List from './components/List';
 
-const App = () => {
-  return (
-    <div>
-      <p>Hello world!</p>
-
-      <Test />
-    </div>
-  );
-};
+function App() {
+  return <List />;
+}
 
 export default App;
